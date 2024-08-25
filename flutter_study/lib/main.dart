@@ -35,9 +35,13 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text("Test Title"),
       ),
       body: Center(
-        child: TextButton(
-          onPressed: () => print("TextButton clicked"),
-          child: const Text("Text Button"),
+        child: GestureDetector(
+          onTap: () => print("GestureDetector used."),
+          child: Container(
+            width: 200,
+            height: 200,
+            color: Colors.amber,
+          )
         )
       ),
     );
