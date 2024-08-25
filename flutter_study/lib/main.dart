@@ -34,16 +34,38 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text("Test Title"),
       ),
-      body: Center(
-        child: GestureDetector(
-          onTap: () => print("GestureDetector used."),
-          child: Container(
-            width: 200,
-            height: 200,
-            color: Colors.amber,
-          )
-        )
+      body: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          postContainer(title: "Title 1", colorData: Colors.yellow),
+          postContainer(title: "Title 2", colorData: Colors.red),
+          postContainer(title: "Title 3", colorData: Colors.green),
+          postContainer(title: "Title 4", colorData: Colors.amber),
+          postContainer(title: "Title 5", colorData: Colors.indigo),
+        ],
       ),
+    );
+  }
+  Widget postContainer({String title = '', Color colorData = Colors.blue}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+            padding: const EdgeInsets.all(10),
+            child: Text(
+              title,
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: 200,
+            color: colorData,
+          )
+      ],
     );
   }
 }
